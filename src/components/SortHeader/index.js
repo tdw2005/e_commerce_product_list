@@ -1,19 +1,17 @@
 import React from 'react';
 import { Select, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSort, setPagination } from '../../store/productSlice';
+import { setSort } from '../../store/productSlice';
 
 const SortHeader = () => {
   const dispatch = useDispatch();
-  const { sort, pagination } = useSelector(state => state.products);
+  const { sort } = useSelector(state => state.products);
 
   const handleSortChange = (value) => {
     dispatch(setSort(value));
   };
 
-  const handlePageSizeChange = (value) => {
-    dispatch(setPagination({ pageSize: value, current: 1 }));
-  };
+  
 
   const sortOptions = [
     { value: 'default', label: '默认排序' },
@@ -23,16 +21,12 @@ const SortHeader = () => {
     { value: 'rating', label: '评分最高' },
   ];
 
-  const pageSizeOptions = [
-    { value: 12, label: '12条/页' },
-    { value: 24, label: '24条/页' },
-    { value: 48, label: '48条/页' },
-  ];
+  
 
   return (
     <div style={{ 
       display: 'flex', 
-      justifyContent: 'space-between', 
+      justifyContent: 'flex-start', 
       alignItems: 'center',
       marginBottom: 16, 
       padding: '16px', 
@@ -48,16 +42,6 @@ const SortHeader = () => {
           onChange={handleSortChange}
           options={sortOptions}
           style={{ width: 150 }}
-        />
-      </Space>
-      
-      <Space>
-        <span style={{ fontWeight: 500 }}>显示数量：</span>
-        <Select
-          value={pagination.pageSize}
-          onChange={handlePageSizeChange}
-          options={pageSizeOptions}
-          style={{ width: 120 }}
         />
       </Space>
     </div>

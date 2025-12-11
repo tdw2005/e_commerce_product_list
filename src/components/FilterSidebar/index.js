@@ -48,6 +48,7 @@ const FilterSidebar = () => {
                     清空
                 </Button>
             }
+            style={{ position: 'sticky', top: 84 }}
         >
             {/* 价格筛选 */}
             <div style={{ marginBottom: 24 }}>
@@ -57,6 +58,7 @@ const FilterSidebar = () => {
                     min={0}
                     max={10000}
                     step={100}
+                    marks={{ 0: '¥0', 10000: '¥10000' }}
                     value={filters.priceRange}
                     onChange={handlePriceChange}
                     tooltip={{ formatter: (value) => `¥${value}` }}

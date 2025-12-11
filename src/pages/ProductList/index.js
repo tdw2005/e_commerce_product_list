@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Spin, Empty, Alert, message } from 'antd';
+import { Row, Col, Spin, Empty, Alert, message, Skeleton } from 'antd';
 import { fetchProducts, setPagination, prefetchProducts, refreshFeed } from '../../store/productSlice';
 import FilterSidebar from '../../components/FilterSidebar';
 import SortHeader from '../../components/SortHeader';
@@ -140,15 +140,18 @@ const ProductList = () => {
           <SortHeader />
           
           {loading ? (
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center', 
-              height: 400 
-            }}>
-              <Spin size="large" />
-              <div style={{ marginTop: 8, color: '#999' }}>加载中...</div>
-            </div>
+            <Row gutter={[16, 16]}>
+              {Array.from({ length: 8 }).map((_, i) => (
+                <Col xs={24} sm={12} md={8} lg={6} key={i}>
+                  <div style={{ background: '#fff', padding: 16, borderRadius: 6 }}>
+                    <div style={{ width: '100%', height: 200, marginBottom: 12, borderRadius: 6, overflow: 'hidden' }}>
+                      <Skeleton.Image style={{ width: '100%', height: '100%' }} active />
+                    </div>
+                    <Skeleton active paragraph={{ rows: 3 }} title={{ width: '60%' }} />
+                  </div>
+                </Col>
+              ))}
+            </Row>
           ) : items.length === 0 ? (
             <Empty 
               description="暂无商品数据" 

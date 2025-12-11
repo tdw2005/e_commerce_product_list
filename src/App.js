@@ -18,6 +18,8 @@ const theme = {
         colorPrimary: '#1890ff',
         borderRadius: 6,
         colorBgContainer: '#ffffff',
+        colorBgLayout: '#f5f5f5',
+        fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',Helvetica,Arial,sans-serif",
     },
     components: {
         Layout: {
@@ -27,6 +29,7 @@ const theme = {
         },
         Card: {
             borderRadiusLG: 8,
+            boxShadow: '0 1px 2px rgba(0,0,0,0.06)'
         },
         Button: {
             borderRadius: 6,

@@ -136,6 +136,9 @@ const ProductCard = ({ product }) => {
                     </Tooltip>
                 ]}
                 styles={{ body: { padding: '12px' } }}
+                style={{ borderRadius: 8, overflow: 'hidden', boxShadow: '0 1px 2px rgba(0,0,0,0.06)', transition: 'box-shadow .2s ease' }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.12)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 1px 2px rgba(0,0,0,0.06)'; }}
             >
                 <Meta
                     title={

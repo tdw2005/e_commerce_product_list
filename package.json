@@ -25,6 +25,12 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
+  "overrides": {
+    "source-map": "0.7.4",
+    "detect-port-alt": {
+      "debug": "4.3.4"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
